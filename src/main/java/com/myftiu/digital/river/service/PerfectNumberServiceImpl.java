@@ -8,14 +8,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by myftiu
  */
 @Service
-public class PerfectNumberServiceImpl implements PerfectNumerService {
+public class PerfectNumberServiceImpl implements PerfectNumerService   {
 
     private static final Logger logger = LoggerFactory.getLogger(PerfectNumberServiceImpl.class);
+	private static final ForkJoinPool fjPool = new ForkJoinPool();
 
     /**
      *
@@ -82,4 +86,6 @@ public class PerfectNumberServiceImpl implements PerfectNumerService {
 
         return Longs.toArray(perfectNumbersRange);
     }
+
+
 }
